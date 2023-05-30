@@ -10,6 +10,8 @@ namespace PAB
         public Login()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -17,17 +19,17 @@ namespace PAB
             txtPassword.UseSystemPasswordChar = true;
         }
 
-        private void CenterControlHorizontally(Control control)
-        {
-            control.Anchor = AnchorStyles.None;
+        //private void CenterControlHorizontally(Control control)
+        //{
+        //    control.Anchor = AnchorStyles.None;
 
-            int formCenterX = this.Width / 2;
-            int controlCenterX = control.Width / 2;
+        //    int formCenterX = this.Width / 2;
+        //    int controlCenterX = control.Width / 2;
 
-            int left = formCenterX - controlCenterX;
+        //    int left = formCenterX - controlCenterX;
 
-            control.Left = left;
-        }
+        //    control.Left = left;
+        //}
 
         private void bntLogin_Click(object sender, EventArgs e)
         {
@@ -42,6 +44,6 @@ namespace PAB
 
         }
 
-        
+ 
     }
 }
