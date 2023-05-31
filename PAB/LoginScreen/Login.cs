@@ -1,17 +1,20 @@
 using ReaLTaiizor.Forms;
 using PAB.LoginScreen;
+using PAB.MainWindow;
 
 namespace PAB
 {
     public partial class Login : MetroForm
     {
-        private string _connectionString = "Server=DESKTOP-C9F8288;Database=Docu;Integrated Security=True;Encrypt=False;";
+        private ILoginDAO LoginDAO { get; set; }
+        private GeneralMenu GeneralMenu { get; set; }
 
-        public Login()
+        public Login(ILoginDAO loginDAO,GeneralMenu generalMenu)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-
+            this.LoginDAO = loginDAO;
+            this.GeneralMenu = generalMenu;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -19,26 +22,22 @@ namespace PAB
             txtPassword.UseSystemPasswordChar = true;
         }
 
-        //private void CenterControlHorizontally(Control control)
-        //{
-        //    control.Anchor = AnchorStyles.None;
-
-        //    int formCenterX = this.Width / 2;
-        //    int controlCenterX = control.Width / 2;
-
-        //    int left = formCenterX - controlCenterX;
-
-        //    control.Left = left;
-        //}
 
         private void bntLogin_Click(object sender, EventArgs e)
         {
             string alias = txtId.Text;
             string password = txtPassword.Text;
-
-            LoginDAO loginDAO = new LoginDAO(_connectionString);
-            bool isLoginValid = loginDAO.CheckLoginData(alias, password);
-            MessageBox.Show(isLoginValid == true ? "ok" : "nok");
+            bool isLoginValid = LoginDAO.CheckLoginData(alias, password);
+            if (isLoginValid)
+            {
+                this.Hide();
+                GeneralMenu.Closed += (s, args) => this.Close();
+                GeneralMenu.Show();
+            }
+            else
+            {
+                MessageBox.Show("Inccorect username or password");
+            }
 
 
 

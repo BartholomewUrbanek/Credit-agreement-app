@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PAB.MainWindow
 {
-    internal class MainWindowDAO
+    public interface IDocumentationList
     {
+        ListViewItem[] DisplayDocumentation(Guid idStatusu);
+        Guid GetStatusID(string nazwaStatusu);
     }
 }
