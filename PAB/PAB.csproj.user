@@ -4,7 +4,7 @@
     <Compile Update="LoginScreen\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MainWindow\GeneralMenu.cs">
+    <Compile Update="MainWindow\Documentation\GeneralMenu.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

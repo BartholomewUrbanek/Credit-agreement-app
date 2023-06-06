@@ -1,5 +1,6 @@
 using PAB.LoginScreen;
 using PAB.MainWindow;
+using PAB.MainWindow.Customer;
 
 namespace PAB
 {
@@ -14,10 +15,11 @@ namespace PAB
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            string connectionString = "Server=DESKTOP-C9F8288;Database=PADB;Integrated Security=True;Encrypt=False;";
+            string connectionString = "Server=DESKTOP-C9F8288;Database=Docu_v2;Integrated Security=True;Encrypt=False;";
             ILoginDAO loginDAO = new LoginDAO(connectionString);
             IDocumentationList displayTable = new DocumentationList(connectionString);
-            GeneralMenu generalMenu = new GeneralMenu(displayTable);
+            ICustomer customer = new Customer(connectionString);
+            GeneralMenu generalMenu = new GeneralMenu(displayTable,customer);
             Application.Run(new Login(loginDAO,generalMenu));
         }
     }

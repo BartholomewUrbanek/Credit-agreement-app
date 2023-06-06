@@ -50,6 +50,7 @@
             this.txtPassword.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             this.txtPassword.CustomButton.UseSelectable = true;
             this.txtPassword.CustomButton.Visible = false;
+            this.txtPassword.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Tall;
             this.txtPassword.Lines = new string[0];
             this.txtPassword.Location = new System.Drawing.Point(356, 368);
             this.txtPassword.MaxLength = 32767;
@@ -69,12 +70,14 @@
             // bntLogin
             // 
             this.bntLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.bntLogin.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             this.bntLogin.Location = new System.Drawing.Point(426, 464);
             this.bntLogin.Name = "bntLogin";
             this.bntLogin.Size = new System.Drawing.Size(150, 50);
             this.bntLogin.TabIndex = 2;
             this.bntLogin.Text = "Zaloguj";
             this.bntLogin.UseCustomBackColor = true;
+            this.bntLogin.UseCustomForeColor = true;
             this.bntLogin.UseSelectable = true;
             this.bntLogin.UseVisualStyleBackColor = false;
             this.bntLogin.Click += new System.EventHandler(this.bntLogin_Click);
@@ -124,6 +127,7 @@
             this.txtId.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             this.txtId.CustomButton.UseSelectable = true;
             this.txtId.CustomButton.Visible = false;
+            this.txtId.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Tall;
             this.txtId.Lines = new string[0];
             this.txtId.Location = new System.Drawing.Point(356, 268);
             this.txtId.MaxLength = 32767;

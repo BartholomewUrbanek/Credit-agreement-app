@@ -8,7 +8,6 @@ namespace PAB.MainWindow
 {
     public interface IDocumentationList
     {
-        ListViewItem[] DisplayDocumentation(Guid idStatusu);
-        Guid GetStatusID(string nazwaStatusu);
+        ListViewItem[] DisplayDocumentation(string idStatusu);
     }
 }
