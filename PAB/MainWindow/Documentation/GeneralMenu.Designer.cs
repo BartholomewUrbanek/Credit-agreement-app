@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnDokuUzytkownicy = new ReaLTaiizor.Controls.PoisonButton();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnClientSearch = new ReaLTaiizor.Controls.PoisonButton();
             this.cbClientColumn = new ReaLTaiizor.Controls.PoisonComboBox();
@@ -45,6 +50,9 @@
             this.btnWTrakcie = new ReaLTaiizor.Controls.PoisonButton();
             this.btnOczekujace = new ReaLTaiizor.Controls.PoisonButton();
             this.tbcDocumentation = new ReaLTaiizor.Controls.MetroTabControl();
+            this.btnUmowyStatus = new ReaLTaiizor.Controls.PoisonButton();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgClient)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -54,12 +62,48 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.tabPage3.Controls.Add(this.btnUmowyStatus);
+            this.tabPage3.Controls.Add(this.btnDokuUzytkownicy);
+            this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 42);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(962, 507);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Raportowanie";
+            // 
+            // btnDokuUzytkownicy
+            // 
+            this.btnDokuUzytkownicy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.btnDokuUzytkownicy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
+            this.btnDokuUzytkownicy.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            this.btnDokuUzytkownicy.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnDokuUzytkownicy.Location = new System.Drawing.Point(21, 21);
+            this.btnDokuUzytkownicy.Name = "btnDokuUzytkownicy";
+            this.btnDokuUzytkownicy.Size = new System.Drawing.Size(256, 53);
+            this.btnDokuUzytkownicy.TabIndex = 1;
+            this.btnDokuUzytkownicy.Text = "Użytkownicy/Dokumentacje";
+            this.btnDokuUzytkownicy.UseCustomBackColor = true;
+            this.btnDokuUzytkownicy.UseCustomForeColor = true;
+            this.btnDokuUzytkownicy.UseSelectable = true;
+            this.btnDokuUzytkownicy.UseVisualStyleBackColor = false;
+            this.btnDokuUzytkownicy.Click += new System.EventHandler(this.btnDokuUzytkownicy_Click);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(297, 6);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(647, 495);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // tabPage2
             // 
@@ -240,6 +284,7 @@
             this.btnGeneruj.UseSelectable = true;
             this.btnGeneruj.UseVisualStyleBackColor = false;
             this.btnGeneruj.Visible = false;
+            this.btnGeneruj.Click += new System.EventHandler(this.btnGeneruj_Click);
             // 
             // btnZakonczone
             // 
@@ -318,6 +363,23 @@
             this.tbcDocumentation.ThemeName = "MetroLight";
             this.tbcDocumentation.UnselectedTextColor = System.Drawing.Color.WhiteSmoke;
             // 
+            // btnUmowyStatus
+            // 
+            this.btnUmowyStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.btnUmowyStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
+            this.btnUmowyStatus.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            this.btnUmowyStatus.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnUmowyStatus.Location = new System.Drawing.Point(21, 93);
+            this.btnUmowyStatus.Name = "btnUmowyStatus";
+            this.btnUmowyStatus.Size = new System.Drawing.Size(256, 53);
+            this.btnUmowyStatus.TabIndex = 2;
+            this.btnUmowyStatus.Text = "Umowy/Status";
+            this.btnUmowyStatus.UseCustomBackColor = true;
+            this.btnUmowyStatus.UseCustomForeColor = true;
+            this.btnUmowyStatus.UseSelectable = true;
+            this.btnUmowyStatus.UseVisualStyleBackColor = false;
+            this.btnUmowyStatus.Click += new System.EventHandler(this.btnUmowyStatus_Click);
+            // 
             // GeneralMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -330,6 +392,8 @@
             this.Text = "Menu";
             this.TextColor = System.Drawing.Color.WhiteSmoke;
             this.Load += new System.EventHandler(this.GeneralMenu_Load);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgClient)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -355,5 +419,8 @@
         private ReaLTaiizor.Controls.PoisonDataGridView dgClient;
         private ReaLTaiizor.Controls.PoisonComboBox cbClientColumn;
         private ReaLTaiizor.Controls.PoisonButton btnClientSearch;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private ReaLTaiizor.Controls.PoisonButton btnDokuUzytkownicy;
+        private ReaLTaiizor.Controls.PoisonButton btnUmowyStatus;
     }
 }

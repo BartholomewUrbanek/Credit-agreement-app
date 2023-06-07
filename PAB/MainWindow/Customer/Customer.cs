@@ -13,7 +13,7 @@ namespace PAB.MainWindow.Customer
 
         public DataTable ClientList(string searchedValue, string columnName)
         {
-            DataTable resultTable = new DataTable();
+            DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
@@ -25,11 +25,11 @@ namespace PAB.MainWindow.Customer
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
-                        adapter.Fill(resultTable);
+                        adapter.Fill(dt);
                     }
                 }
             }
-            return resultTable;
+            return dt;
         }
     }
 }

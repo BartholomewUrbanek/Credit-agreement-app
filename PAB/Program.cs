@@ -1,6 +1,8 @@
 using PAB.LoginScreen;
 using PAB.MainWindow;
 using PAB.MainWindow.Customer;
+using PAB.MainWindow.Documentation;
+using PAB.MainWindow.Charts;
 
 namespace PAB
 {
@@ -17,9 +19,11 @@ namespace PAB
             ApplicationConfiguration.Initialize();
             string connectionString = "Server=DESKTOP-C9F8288;Database=Docu_v2;Integrated Security=True;Encrypt=False;";
             ILoginDAO loginDAO = new LoginDAO(connectionString);
-            IDocumentationList displayTable = new DocumentationList(connectionString);
+            IDocumentationList documentationList = new DocumentationList(connectionString);
             ICustomer customer = new Customer(connectionString);
-            GeneralMenu generalMenu = new GeneralMenu(displayTable,customer);
+            IGeneratePDF generatePDF = new GeneratePDF(connectionString);
+            GenerateCharts generateCharts = new GenerateCharts(connectionString);
+            GeneralMenu generalMenu = new GeneralMenu(documentationList,customer, generatePDF,generateCharts);
             Application.Run(new Login(loginDAO,generalMenu));
         }
     }

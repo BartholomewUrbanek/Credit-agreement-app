@@ -31,16 +31,16 @@ namespace PAB.MainWindow
                     {
                         while (reader.Read())
                         {
-                            string idDecyzji = (string)reader["Numer decyzji"];
-                            string nazwaKlienta = (string)reader["Nazwa Klienta"];
-                            string numerKRS = (string)reader["Numer KRS"];
-                            DateTime dataUtworzenia = (DateTime)reader["Data utworzenia"];
-                            string statusDoku = (string)reader["Status dokumentacji"];
+                            string decisionId = (string)reader["Numer decyzji"];
+                            string customerName = (string)reader["Nazwa Klienta"];
+                            string numberKRS = (string)reader["Numer KRS"];
+                            DateTime creationDate = (DateTime)reader["Data utworzenia"];
+                            string documentationStatus = (string)reader["Status dokumentacji"];
                             ListViewItem item = new ListViewItem(status);
-                            item.SubItems.Add(idDecyzji);
-                            item.SubItems.Add(nazwaKlienta);
-                            item.SubItems.Add(numerKRS);
-                            item.SubItems.Add(dataUtworzenia.ToString());
+                            item.SubItems.Add(decisionId);
+                            item.SubItems.Add(customerName);
+                            item.SubItems.Add(numberKRS);
+                            item.SubItems.Add(creationDate.ToString());
                             listaDokumentacji.Add(item);
                         }
                     }                   
@@ -48,6 +48,19 @@ namespace PAB.MainWindow
             }
             return listaDokumentacji.ToArray();
         }
+        public void UpdateStatus(string decisionId, string tableName)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string sqlQuerry = $"update {tableName} set [Id statusu] = (select [Id statusu] from Status where Nazwa = 'Gotowa') where [Id Decyzji] = @decisionId";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sqlQuerry, connection))
+                {
+                    command.Parameters.AddWithValue("@decisionId", decisionId);
+                    command.ExecuteScalar();
 
+                }
+            }
+        }
     }
 }

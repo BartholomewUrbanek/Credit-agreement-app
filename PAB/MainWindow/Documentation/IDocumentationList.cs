@@ -9,5 +9,6 @@ namespace PAB.MainWindow
     public interface IDocumentationList
     {
         ListViewItem[] DisplayDocumentation(string idStatusu);
+        void UpdateStatus(string decisionId, string tableName);
     }
 }
